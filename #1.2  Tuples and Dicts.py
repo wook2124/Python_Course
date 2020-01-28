@@ -1,3 +1,9 @@
+<--! Tuple -->
+days = ("Mon","Tue","Wed","Thur","Fri","Sat","Sun")
+
+print(type(days))
+
+<--! Dictionary -->
 wook = {
   "name" : "Wook",
   "age" : 27,
