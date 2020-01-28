@@ -1,10 +1,6 @@
-wook = {
-  "name" : "Wook",
-  "age" : 27,
-  "korean" : True,
-  "fav_food" : ["Kimchi",   "Chicken"]
-}
+age = "27"
+print(type(age))
 
-print(wook)
-wook["Man"] = True
-print(wook)
+n_age = int(age)
+print(n_age)
+print(type(n_age))
