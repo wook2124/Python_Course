@@ -1,4 +1,4 @@
-# tuple
+# tuple 
 days = ("Mon","Tue","Wed","Thur","Fri","Sat","Sun")
 
 print(type(days))
