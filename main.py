@@ -1,7 +1,4 @@
-# def(정의하기, 함수만들기)
-def say_hello():
-  print("hello")
-  print("bye")
+def 안녕이라고_말하는_함수(a, b):
+  print("안녕", a, b)
 
-# say_hello는 버튼 / ()는 누르기 
-say_hello()
+안녕이라고_말하는_함수("나는", "코딩 공부중이야")
