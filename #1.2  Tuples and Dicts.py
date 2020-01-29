@@ -1,10 +1,10 @@
-# Tuple
+# tuple
 days = ("Mon","Tue","Wed","Thur","Fri","Sat","Sun")
 
 print(type(days))
 
 
-# Dictionary
+# dictionary
 wook = {
   "name" : "Wook",
   "age" : 27,

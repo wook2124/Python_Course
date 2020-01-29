@@ -1,4 +1,4 @@
-# List
+# list
 days = ["Mon","Tue","Wed","Thur","Fri","Sat","Sun"]
 
 print(days)
