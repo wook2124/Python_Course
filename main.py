@@ -1,4 +1,5 @@
-def 안녕이라고_말하는_함수(a, b):
-  print("안녕", "hello~~", a, b)
+def say_hello(name, age, where_from, fav_food):
+  return f"Hello {name}, you are {age} years old? And are you from {where_from} right? So {fav_food} is your favorite food??"
 
-안녕이라고_말하는_함수("나는", "코딩 공부중이야")
+hello = say_hello(age="27", fav_food="참치마요", where_from="Korea", name="Wook")
+print(hello)
