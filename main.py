@@ -1,31 +1,11 @@
-def change_int(lalala):
-  return int(lalala)
-
-
 def plus(a, b):
-  return a + b
+  if type(b) is int or type(b) is float:
+    return a + b
+  else:
+    return "Error"
 
-def minus(a, b):
-  return a - b
+a = 12
+b = "asdf"
 
-def times(a, b):
-  return a * b
-
-def division(a, b):
-  return a / b
-
-def remainder(a, b):
-  return a % b
-
-def negation(a, b):
-  return -a
-
-def power(a, b):
-  return a ** b
-
-a = change_int("10")
-b = change_int("3")
-
-result = plus(a, b), minus(a, b), times(a, b), division(a, b), remainder(a, b), negation(a, b), power(a, b)
-
+result = plus(a, b)
 print(result)
