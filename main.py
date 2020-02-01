@@ -1,11 +1,13 @@
-def plus(a, b):
-  if type(b) is int or type(b) is float:
-    return a + b
+def age_check(age):
+  print(f"you are {age}")
+  if age < 18:
+    print("you can't drink")
+  elif age == 18 or age == 19:
+    print("you are new to this!")
+  elif age > 20 and age < 25:
+    print("you are still kind of young")
   else:
-    return "Error"
+    print("enjoy your drink")
 
-a = 12
-b = "asdf"
 
-result = plus(a, b)
-print(result)
+age_check(19)
