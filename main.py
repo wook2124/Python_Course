@@ -1,9 +1,18 @@
-from  calculator import plus, minus, times, division, remainder, negation, power
+import requests
+from bs4 import BeautifulSoup
 
-print(plus(1, 2))
-print(minus(6, 3))
-print(times(2, 3))
-print(division(8, 2))
-print(remainder(10,3))
-print(negation(3, 2))
-print(power(2, 6))
+
+indeed_result = requests.get("https://www.indeed.com/jobs?as_and=python&as_phr=&as_any=&as_not=&as_ttl=&as_cmp=&jt=all&st=&as_src=&salary=&radius=25&l=&fromage=any&limit=50&sort=&psf=advsrch&from=advancedsearch")
+
+indeed_soup = BeautifulSoup(indeed_result.text, "html.parser")
+
+pagination = indeed_soup.find("div", {"class":"pagination"})
+
+pages = pagination.find_all('a')
+
+spans = [] #list
+
+for page in pages:
+  spans.append(page.find("span"))
+
+print(spans[0:-1])
