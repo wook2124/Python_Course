@@ -73,4 +73,4 @@ spans = [] #list
 for page in pages:
   spans.append(page.find("span"))
 
-print(spans[0:-1])
+print(spans[0:-1]) 

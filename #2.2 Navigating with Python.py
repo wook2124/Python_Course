@@ -11,4 +11,6 @@ indeed_result = requests.get("https://www.indeed.com/jobs?as_and=python&as_phr=&
 
 print(indeed_result.text)
 
+
 # 추가로 beautifulsoup4까지 설치완료!
+https://www.crummy.com/software/BeautifulSoup/
