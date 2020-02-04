@@ -119,7 +119,7 @@ def extract_indeed_jobs(last_page):
 
 
 
-# 마지막에 이제 일자리(jobs) 관련해서 추출할 것을
+# 마지막에 이제 일자리(jobs) 관련해서 추출할 것을 
 # 미리 설정하고 마무리함. (main.py에는 indeed_jobs)
 import requests
 from bs4 import BeautifulSoup
