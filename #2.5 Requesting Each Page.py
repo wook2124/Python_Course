@@ -140,7 +140,7 @@ def extract_indeed_pages():
 
   max_page = pages[-1]
   return max_page
-
+ 
 
 def extract_indeed_jobs(last_page):
   jobs = []
