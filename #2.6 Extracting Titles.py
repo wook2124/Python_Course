@@ -1,3 +1,5 @@
+# soup를 2번째 def에 추가해주고
+# results를 만들어서 jobsearch를 해줌!
 import requests
 from bs4 import BeautifulSoup
 
@@ -21,11 +23,9 @@ def extract_indeed_pages():
 
 def extract_indeed_jobs(last_page):
   jobs = []
-  # for page in range(last_page):
-  result = requests.get(f"{URL}start={0 * LIMIT}")
-  soup = BeautifulSoup(result.text, "html.parser")
-  results = soup.find_all("div", {"class":"jobsearch-SerpJobCard"})
-  for result in results:
-      title = result.find("div", {"class":"title"}).find("a")["title"]
-      print(title)
+  for page in range(last_page):
+    result = requests.get(f"{URL}start={page * LIMIT}")
+    soup = BeautifulSoup(result.text, "html.parser")
+    results = soup.find_all("div", {"class":"jobsearch-SerpJobCard"})
+    print(results)
   return jobs
