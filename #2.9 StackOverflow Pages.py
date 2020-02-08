@@ -1,3 +1,5 @@
+# StackOverflow를 하기 전에 indeed 함수식을 여러개로 쪼개서
+# main.py에 있던 것을 indeed.py로 옮겨줬음!
 import requests
 from bs4 import BeautifulSoup
 
@@ -18,7 +20,8 @@ def get_last_page():
     max_page = pages[-1]
     return max_page
 
-
+# 그리고 이 함수식에 company가 들어있지 않는 회사들에 한해서
+# None 값이 뜨도록 한번 더 설정해줌
 def extract_job(html):
     title = html.find("div", {"class": "title"}).find("a")["title"]
     company = html.find("span", {"class": "company"})
@@ -58,3 +61,23 @@ def get_jobs():
   last_page = get_last_page()
   jobs = extract_jobs(last_page)
   return jobs
+
+
+# None이 나와서 진행이 안됨..
+# pages = soup.find("div").. 이부분임
+import requests
+from bs4 import BeautifulSoup
+
+URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
+
+
+def get_last_page():
+  result = requests.get(URL)
+  soup = BeautifulSoup(result.text, "html.parser")
+  pages = soup.find("div", {"class":"pagination"}).find_all("a")
+  print(pages)
+
+
+def get_jobs():
+  last_page = get_last_page()
+  return []
