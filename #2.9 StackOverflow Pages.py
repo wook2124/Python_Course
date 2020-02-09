@@ -63,8 +63,10 @@ def get_jobs():
   return jobs
 
 
-# None이 나와서 진행이 안됨..
+# None이 나와서 진행이 안됨.. (X)
 # pages = soup.find("div").. 이부분임
+# class: "pagination" 명을 잘못 앎
+# pagination >> s-pagination 으로 고침!
 import requests
 from bs4 import BeautifulSoup
 
@@ -74,7 +76,7 @@ URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
 def get_last_page():
   result = requests.get(URL)
   soup = BeautifulSoup(result.text, "html.parser")
-  pages = soup.find("div", {"class":"pagination"}).find_all("a")
+  pages = soup.find("div", {"class":"s-pagination"}).find_all("a")
   print(pages)
 
 
