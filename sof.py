@@ -12,6 +12,14 @@ def get_last_page():
   return int(last_page)
 
 
+def extract_job(html):
+  title = html.find("h2", {"class":"fs-body3"}).find("a")["title"]
+  company, location = html.find("h3", {"class":"fs-body1"}).find_all("span", recursive=False)
+  company.get_text(strip=True)
+  location.get_text(strip=True)
+  print(company.string, location.string)
+
+
 def extract_jobs(last_page):
   jobs = []
   for page in range(last_page):
@@ -19,7 +27,9 @@ def extract_jobs(last_page):
     soup = BeautifulSoup(result.text, "html.parser")
     results = soup.find_all("div", {"class":"-job"})
     for result in results:
-     print(result["data-jobid"])
+      job = extract_job(result)
+      jobs.append(job)
+  return jobs
 
 
 def get_jobs():
