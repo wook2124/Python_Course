@@ -17,12 +17,14 @@ def extract_job(html):
   company, location = html.find("h3", {"class":"fs-body1"}).find_all("span", recursive=False)
   company.get_text(strip=True)
   location.get_text(strip=True)
-  return {"title": title, "company": company, "location": location}
+  job_id = html["data-jobid"]
+  return {"title": title, "company": company.string, "location": location.string, "link": f"https://stackoverflow.com/jobs/{job_id}"}
 
 
 def extract_jobs(last_page):
   jobs = []
   for page in range(last_page):
+    print(f"Scrapping SOF: Page: {page}")
     result = requests.get(f"{URL}&pg={page + 1}")
     soup = BeautifulSoup(result.text, "html.parser")
     results = soup.find_all("div", {"class":"-job"})
