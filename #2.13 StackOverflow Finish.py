@@ -53,7 +53,6 @@ def extract_job(html):
   return {"title": title, "company": company.string, "location": location.string, "link": f"https://stackoverflow.com/jobs/{job_id}"}
 
 
-
 # SOF 최종
 import requests
 from bs4 import BeautifulSoup
