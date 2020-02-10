@@ -6,4 +6,4 @@ indeed_jobs = get_indeed_jobs()
 sof_jobs = get_sof_jobs()
 
 jobs = indeed_jobs + sof_jobs
-print(jobs)
+print(jobs) 
