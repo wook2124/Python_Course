@@ -4,13 +4,10 @@ class Car():
   windows = 4
   seats = 4
 
+  def start(self):
+    print(self.doors)
+    print("What is method.")
 
 porche = Car()
-porche.color = "Red"
-
-
-ferrari = Car()
-ferrari.color = "Yellow"
-
-mini = Car()
-mini.color = "White"
+porche.instance = "This is First instance"
+porche.start(porche)
