@@ -12,8 +12,22 @@ class Car():
     return f"Car with {self.wheels} wheels"
 
 
-porche = Car(color = "Green", price = "$40")
-print(porche.color, porche.price)
+class Convertible(Car):
 
-mini = Car()
-print(mini.color, mini.price)
+  def __init__(self, **kwargs):
+    super().__init__(**kwargs)
+    self.time = kwargs.get("time", 10)
+
+  def take_off(self):
+    return "taking off"
+
+  def __str__(self):
+    return f"Car with no roof"
+
+
+class Cars_son_of_son(Convertible):
+  pass
+
+
+porche = Convertible(color = "Green", price = "$40")
+print(porche.color)
