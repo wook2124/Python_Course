@@ -1,9 +1,9 @@
-# Python course
+# Python Course
 Nomad coders's Python Course
 It's started since 2020.01.27.~2020.02.11.
 
 
-# Web site
+# Website
 https://github.com/wook2124/requests
 
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
