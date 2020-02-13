@@ -1,7 +1,7 @@
 # Python_Course
 Nomad Coders's Python Course
 
-It's started since 2020.01.27.~
+It's started since 2020.01.27.~2020.02.11.
 
 https://github.com/wook2124/requests
 
