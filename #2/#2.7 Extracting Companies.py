@@ -1,10 +1,9 @@
-# anchor안에 링크가 있는 회사와 없는 회사를 if else로 나눔
-# 만약 anchor 안에 링크가 있다면 None이 나오지 않음
-# None이 나온다면 anchor 안에 링크가 없기에 else로 가서 출력이 됨.
-# 그러나 빈칸이 너무 많이 나옴
+# anchor안에 URL이 있는 회사와 없는 회사를 if else로 나눔!
+# 만약 anchor 안에 URL이 있다면 None 값이 나오지 않음.
+# None 값이 나온다면 anchor 안에 URL이 없기에 else로 가서 출력이 됨.
+# 그러나 이렇게 하면 빈칸이 너무 많이 나옴.
 import requests
 from bs4 import BeautifulSoup
-
 
 LIMIT = 50
 URL = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
@@ -21,7 +20,6 @@ def extract_indeed_pages():
 
   max_page = pages[-1]
   return max_page
-
 
 def extract_indeed_jobs(last_page):
   jobs = []
@@ -40,28 +38,7 @@ def extract_indeed_jobs(last_page):
   return jobs
 
 
-# string.strip() << 이용해서 빈칸을 없앰!
-import requests
-from bs4 import BeautifulSoup
-
-
-LIMIT = 50
-URL = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
-
-def extract_indeed_pages():
-  result = requests.get(URL)
-  soup = BeautifulSoup(result.text, "html.parser")
-  pagination = soup.find("div", {"class":"pagination"})
-
-  links = pagination.find_all('a')
-  pages = []
-  for link in links[:-1]:
-    pages.append(int(link.string))
-
-  max_page = pages[-1]
-  return max_page
-
-
+# if, else구문을 끝내고 string.strip() << 이용해서 빈칸을 없앰!
 def extract_indeed_jobs(last_page):
   jobs = []
   # for page in range(last_page):
@@ -81,11 +58,9 @@ def extract_indeed_jobs(last_page):
   return jobs
 
 
-
-# title과 company 출력하기
+# 최종코드, title과 company 출력하기
 import requests
 from bs4 import BeautifulSoup
-
 
 LIMIT = 50
 URL = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
@@ -102,7 +77,6 @@ def extract_indeed_pages():
 
   max_page = pages[-1]
   return max_page
-
 
 def extract_indeed_jobs(last_page):
   jobs = []
