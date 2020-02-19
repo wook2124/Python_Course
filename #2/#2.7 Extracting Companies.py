@@ -1,7 +1,6 @@
 # anchor안에 URL이 있는 회사와 없는 회사를 if else로 나눔!
 # 만약 anchor 안에 URL이 있다면 None 값이 나오지 않음.
-# None 값이 나온다면 anchor 안에 URL이 없기에 else로 가서 출력이 됨.
-# 그러나 이렇게 하면 빈칸이 너무 많이 나옴.
+# None 값이 나온다면 anchor 안에 URL이 없기에 else로 가서 출력이 됨. 그러나 이렇게 하면 빈칸이 너무 많이 나옴.
 import requests
 from bs4 import BeautifulSoup
 
