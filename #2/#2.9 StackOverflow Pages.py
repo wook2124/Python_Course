@@ -1,11 +1,9 @@
-# StackOverflow를 하기 전에 indeed 함수식을 여러개로 쪼개서
-# main.py에 있던 것을 indeed.py로 옮겨줬음!
+# StackOverflow를 하기 전에 indeed 함수식을 여러개로 쪼개서 main.py에 있던 것을 indeed.py로 옮겨줌
 import requests
 from bs4 import BeautifulSoup
 
 LIMIT = 50
 URL = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
-
 
 def get_last_page():
     result = requests.get(URL)
@@ -20,8 +18,7 @@ def get_last_page():
     max_page = pages[-1]
     return max_page
 
-# 그리고 이 함수식에 company가 들어있지 않는 회사들에 한해서
-# None 값이 뜨도록 한번 더 설정해줌
+# 그리고 이 함수식 company 결과값 중 company 정보가 없는 회사들은 None 값이 뜨도록 if문을 수정함
 def extract_job(html):
     title = html.find("div", {"class": "title"}).find("a")["title"]
     company = html.find("span", {"class": "company"})
@@ -43,7 +40,6 @@ def extract_job(html):
         "link": f"https://www.indeed.com/viewjob?jk={job_id}"
     }
 
-
 def extract_jobs(last_page):
   jobs = []
   for page in range(last_page):
@@ -56,29 +52,27 @@ def extract_jobs(last_page):
       jobs.append(job)
   return jobs
 
-
 def get_jobs():
   last_page = get_last_page()
   jobs = extract_jobs(last_page)
   return jobs
 
 
-# None이 나와서 진행이 안됨.. (X)
-# pages = soup.find("div").. 이부분임
-# class: "pagination" 명을 잘못 앎
-# pagination >> s-pagination 으로 고침!
+# sof 홈페이지 Webscraping!
+# 그러나 None 값이 나와서 진행이 안됨.. (X)
+# pages = soup.find("div"..) 이 부분!
+# sof홈페이지의 class: "pagination"명이 강의영상때와 다름! 
+# "pagination" >> "s-pagination"으로 고침! (O)
 import requests
 from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
-
 
 def get_last_page():
   result = requests.get(URL)
   soup = BeautifulSoup(result.text, "html.parser")
   pages = soup.find("div", {"class":"s-pagination"}).find_all("a")
   print(pages)
-
 
 def get_jobs():
   last_page = get_last_page()
