@@ -8,14 +8,13 @@ def extract_job(html):
   return {"title": title, "company": company, "location": location, "link": f"https://stackoverflow.com/jobs/{job_id}"}
 
 
-# 'Tag' object cannot be interpreted as an integer
-# extract_jobs >> extract_job
+# 오류명: 'Tag' object cannot be interpreted as an integer
+# 수정: extract_jobs >> extract_job
 # 고작 s 하나 때문에 1시간을 헤맸다니....
 import requests
 from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
-
 
 def get_last_page():
   result = requests.get(URL)
@@ -23,7 +22,6 @@ def get_last_page():
   pages = soup.find("div", {"class":"s-pagination"}).find_all("a")
   last_page = pages[-2].get_text(strip=True)
   return int(last_page)
-
 
 def extract_jobs(last_page):
   jobs = []
@@ -35,7 +33,6 @@ def extract_jobs(last_page):
       job = extract_job(result)
       jobs.append(job)
   return jobs
-
 
 def get_jobs():
   last_page = get_last_page()
@@ -60,12 +57,12 @@ def extract_job(html):
 # print(company.string, location.string)으로 str만 가져오기!
 
 
+# 최종 코드
 # 지금까지의 sof.py 결과물!
 import requests
 from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
-
 
 def get_last_page():
   result = requests.get(URL)
@@ -74,14 +71,12 @@ def get_last_page():
   last_page = pages[-2].get_text(strip=True)
   return int(last_page)
 
-
 def extract_job(html):
   title = html.find("h2", {"class":"fs-body3"}).find("a")["title"]
   company, location = html.find("h3", {"class":"fs-body1"}).find_all("span", recursive=False)
   company.get_text(strip=True)
   location.get_text(strip=True)
   print(company.string, location.string)
-
 
 def extract_jobs(last_page):
   jobs = []
@@ -93,7 +88,6 @@ def extract_jobs(last_page):
       job = extract_job(result)
       jobs.append(job)
   return jobs
-
 
 def get_jobs():
   last_page = get_last_page()

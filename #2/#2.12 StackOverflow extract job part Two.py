@@ -9,14 +9,12 @@ from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
 
-
 def get_last_page():
   result = requests.get(URL)
   soup = BeautifulSoup(result.text, "html.parser")
   pages = soup.find("div", {"class":"s-pagination"}).find_all("a")
   last_page = pages[-2].get_text(strip=True)
   return int(last_page)
-
 
 def extract_job(html):
   title = html.find("h2", {"class":"fs-body3"}).find("a")["title"]
@@ -25,7 +23,6 @@ def extract_job(html):
   location.get_text(strip=True).strip("-").strip(" \r").strip("\n")
   print(company.string, location.string)
 
-
 def extract_jobs(last_page):
   jobs = []
   for page in range(last_page):
@@ -37,19 +34,18 @@ def extract_jobs(last_page):
       jobs.append(job)
   return jobs
 
-
 def get_jobs():
   last_page = get_last_page()
   jobs = extract_jobs(last_page)
   return jobs
 
 
+# 최종 코드
 # 추가표현 지우고, return값 입력해줌!
 import requests
 from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
-
 
 def get_last_page():
   result = requests.get(URL)
@@ -58,14 +54,12 @@ def get_last_page():
   last_page = pages[-2].get_text(strip=True)
   return int(last_page)
 
-
 def extract_job(html):
   title = html.find("h2", {"class":"fs-body3"}).find("a")["title"]
   company, location = html.find("h3", {"class":"fs-body1"}).find_all("span", recursive=False)
   company.get_text(strip=True)
   location.get_text(strip=True)
   return {"title": title, "company": company, "location": location}
-
 
 def extract_jobs(last_page):
   jobs = []
@@ -77,7 +71,6 @@ def extract_jobs(last_page):
       job = extract_job(result)
       jobs.append(job)
   return jobs
-
 
 def get_jobs():
   last_page = get_last_page()
