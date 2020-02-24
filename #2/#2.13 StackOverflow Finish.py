@@ -1,10 +1,8 @@
-# return 값을 잘 불러오긴 하지만
-# <span> 값이 같이 출력되서 번잡함 ㅠㅠ
+# return 값을 잘 불러오긴 하지만 <span> 값이 같이 출력되서 번잡함
 import requests
 from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
-
 
 def get_last_page():
   result = requests.get(URL)
@@ -13,7 +11,6 @@ def get_last_page():
   last_page = pages[-2].get_text(strip=True)
   return int(last_page)
 
-
 def extract_job(html):
   title = html.find("h2", {"class":"fs-body3"}).find("a")["title"]
   company, location = html.find("h3", {"class":"fs-body1"}).find_all("span", recursive=False)
@@ -21,7 +18,6 @@ def extract_job(html):
   location.get_text(strip=True).strip("-").strip(" \r").strip("\n")
   job_id = html["data-jobid"]
   return {"title": title, "company": company, "location": location, "link": f"https://stackoverflow.com/jobs/{job_id}"}
-
 
 def extract_jobs(last_page):
   jobs = []
@@ -34,7 +30,6 @@ def extract_jobs(last_page):
       print(job)
       jobs.append(job)
   return jobs
-
 
 def get_jobs():
   last_page = get_last_page()
@@ -53,12 +48,11 @@ def extract_job(html):
   return {"title": title, "company": company.string, "location": location.string, "link": f"https://stackoverflow.com/jobs/{job_id}"}
 
 
-# SOF 최종
+# sof.py 최종 코드
 import requests
 from bs4 import BeautifulSoup
 
 URL = f"https://stackoverflow.com/jobs?q=python&sort=i"
-
 
 def get_last_page():
   result = requests.get(URL)
@@ -67,7 +61,6 @@ def get_last_page():
   last_page = pages[-2].get_text(strip=True)
   return int(last_page)
 
-
 def extract_job(html):
   title = html.find("h2", {"class":"fs-body3"}).find("a")["title"]
   company, location = html.find("h3", {"class":"fs-body1"}).find_all("span", recursive=False)
@@ -75,7 +68,6 @@ def extract_job(html):
   location.get_text(strip=True)
   job_id = html["data-jobid"]
   return {"title": title, "company": company.string, "location": location.string, "link": f"https://stackoverflow.com/jobs/{job_id}"}
-
 
 def extract_jobs(last_page):
   jobs = []
@@ -89,20 +81,18 @@ def extract_jobs(last_page):
       jobs.append(job)
   return jobs
 
-
 def get_jobs():
   last_page = get_last_page()
   jobs = extract_jobs(last_page)
   return jobs
 
 
-# Indeed 최종
+# indeed.py 최종 코드
 import requests
 from bs4 import BeautifulSoup
 
 LIMIT = 50
 URL = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
-
 
 def get_last_page():
     result = requests.get(URL)
@@ -116,7 +106,6 @@ def get_last_page():
 
     max_page = pages[-1]
     return max_page
-
 
 def extract_job(html):
     title = html.find("div", {"class": "title"}).find("a")["title"]
@@ -139,7 +128,6 @@ def extract_job(html):
         "link": f"https://www.indeed.com/viewjob?jk={job_id}"
     }
 
-
 def extract_jobs(last_page):
   jobs = []
   for page in range(last_page):
@@ -152,17 +140,15 @@ def extract_jobs(last_page):
       jobs.append(job)
   return jobs
 
-
 def get_jobs():
   last_page = get_last_page()
   jobs = extract_jobs(last_page)
   return jobs
 
 
-# main.py 수정
+# main.py 최종 코드
 from indeed import get_jobs as get_indeed_jobs
 from sof import get_jobs as get_sof_jobs
-
 
 indeed_jobs = get_indeed_jobs()
 sof_jobs = get_sof_jobs()
