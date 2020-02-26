@@ -3,7 +3,6 @@ from indeed import get_jobs as get_indeed_jobs
 from sof import get_jobs as get_sof_jobs
 from save import save_file
 
-
 indeed_jobs = get_indeed_jobs()
 # sof_jobs = get_sof_jobs()
 
@@ -19,7 +18,6 @@ from bs4 import BeautifulSoup
 LIMIT = 50
 URL = f"https://www.indeed.com/jobs?q=python&limit={LIMIT}"
 
-
 def get_last_page():
     result = requests.get(URL)
     soup = BeautifulSoup(result.text, "html.parser")
@@ -32,7 +30,6 @@ def get_last_page():
 
     max_page = pages[-1]
     return max_page
-
 
 def extract_job(html):
     title = html.find("div", {"class": "title"}).find("a")["title"]
@@ -55,7 +52,6 @@ def extract_job(html):
         "link": f"https://www.indeed.com/viewjob?jk={job_id}"
     }
 
-
 def extract_jobs(last_page):
   jobs = []
   for page in range(last_page):
@@ -67,7 +63,6 @@ def extract_jobs(last_page):
       job = extract_job(result)
       jobs.append(job)
   return jobs
-
 
 def get_jobs():
   last_page = get_last_page()
@@ -85,7 +80,6 @@ def save_file(jobs):
   for job in jobs:
     writer.writerow(list(job.values()))
   return
-
 
 # jobs에 있는 각 job을 가지고 row(행)를 작성함
 # job이 가진 값의 list를 row(행)로 가져올 것임
