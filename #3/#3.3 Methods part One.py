@@ -80,4 +80,4 @@ porche.instance = "This is First instance"
 porche.start(porche)
 
 # 정리하자면, class(설계도)로 만든 첫 번째 instance인 porche(산출물)가 
-# method인 start()를 호출했기 때문에 start()의 첫 번째 argument가 된 것이다.
+# method인 start()를 호출했기 때문에 start()의 첫 번째 argument가 된 것임
