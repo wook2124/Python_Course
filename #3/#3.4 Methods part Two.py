@@ -9,7 +9,7 @@ print(dir(Car))
 
 
 # 안에 있는 '__str__'은 class안에 이미 내재되어 있는 method(function)임
-# 즉 어떤 argument가 와도 str(문자열)로 출력하고자 함을 내포한 것임!
+# 즉 어떤 argument가 와도 str(문자열)로 출력하고자 함을 내포한 것임
 # 여기서 class 안에 있는 method 중 하나인 __str__() 을 override(재정의)하고 return 값을 해주면 내가 치는 값이 출력됨
 # __str__() 에서 ()는 self를 지칭함
 # python이 자동으로 porche.__str__()을 호출해서 porche를 print해도 내가 return한 값이 나오게 됨
@@ -45,7 +45,7 @@ print(porche)
 
 # kwargs.get(k, d) - 
 # k는 key(내가 원하는 것), d는 default(값)으로 내가 원하는 값이 없을 때 나타낼 값
-# positional argument가 아닌 keyword argument로 지정해서 사용할 것이기 때문에 args는 사실상 필요없음!
+# positional argument가 아닌 keyword argument로 지정해서 사용할 것이기 때문에 args는 사실상 필요없음
 class Car():
 
   def __init__(self, *args, **kwargs):
