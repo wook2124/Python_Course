@@ -1,6 +1,5 @@
 # Python Course
 
-Nomad coders's Python Course  
 `2020.01.27. ~ 2020.02.11.`
 
 ## Website
