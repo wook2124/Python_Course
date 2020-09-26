@@ -1,5 +1,6 @@
 # Python Course
 
+Nomad Coders's Python Course  
 `2020.01.27. ~ 2020.02.11.`
 
 ## Website
@@ -22,4 +23,5 @@ I easily got a job data on the site through web-scraping. Try web-scraping with 
 ## What I used for this project 
 
 - [X] Python
- 
+- [X] Requests
+- [X] BeautifulSoup4
