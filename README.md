@@ -6,7 +6,7 @@ Nomad Coders's Python Course
 ## Website
 
 - [Requests](https://github.com/wook2124/requests)
-- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [Sequence-types](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range)
 - [Stackoverflow](https://stackoverflow.com/jobs?q=python)
 - [Indeed](https://www.indeed.com/jobs?q=python&limit=50)
